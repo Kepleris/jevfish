@@ -1,0 +1,14 @@
+[project]
+name = "jevfish"
+version = "0.1.0"
+description = "Simulación de decisiones de grupos de población con modelos de decisión (Mammoth-1) gratuitos"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["httpx>=0.27"]
+
+[project.scripts]
+jevfish = "jevfish.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

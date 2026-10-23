@@ -1,0 +1,120 @@
+{
+  "tema": "Aumento del 40% en la tarifa del transporte público",
+  "contexto": "El gobierno de la ciudad anunció que el boleto de colectivo y metro subirá un 40% a partir del próximo mes, de 1.000 a 1.400 pesos por viaje. Argumenta que el sistema pierde dinero y que el aumento financiará 300 buses nuevos y mejor frecuencia en hora punta. Los sindicatos de transporte apoyan la medida; organizaciones estudiantiles y vecinales convocan a una marcha para el próximo viernes. Hay elecciones municipales en ocho meses.",
+  "instrucciones_generales": "Ponte en el lugar de la persona descrita. Teniendo en cuenta su perfil, su situación económica, cómo le afecta el aumento y lo que opina su entorno, indica qué es lo más probable que esta persona piense o haga de verdad, no lo que debería hacer.",
+  "poblacion": {
+    "atributos_comunes": {
+      "edad": {"18-24": 0.15, "25-39": 0.32, "40-59": 0.33, "60+": 0.20},
+      "nivel_de_ingresos": {"bajo": 0.35, "medio": 0.45, "alto": 0.20},
+      "afinidad_politica": {"oficialista": 0.35, "opositor": 0.40, "sin_preferencia": 0.25},
+      "viajes_por_semana": ["0-2", "3-6", "7-10", "más de 10"]
+    },
+    "segmentos": [
+      {
+        "id": "estudiantes",
+        "nombre": "Estudiantes universitarios",
+        "peso": 0.12,
+        "descripcion": "Dependen del transporte público para ir a clases; muchos trabajan medio tiempo.",
+        "afectacion": "El aumento se come una parte grande de su presupuesto mensual; no tienen boleto estudiantil gratuito.",
+        "atributos": {
+          "edad": {"18-24": 0.8, "25-39": 0.2},
+          "nivel_de_ingresos": {"bajo": 0.55, "medio": 0.4, "alto": 0.05},
+          "viajes_por_semana": {"7-10": 0.6, "más de 10": 0.4}
+        }
+      },
+      {
+        "id": "trabajadores_formales",
+        "nombre": "Trabajadores formales que viajan en transporte público",
+        "peso": 0.38,
+        "descripcion": "Empleados con contrato que viajan a diario al trabajo.",
+        "afectacion": "Gastarán unos 16.000 pesos más al mes; algunos empleadores reintegran parte del transporte.",
+        "atributos": {
+          "edad": {"18-24": 0.1, "25-39": 0.45, "40-59": 0.45},
+          "viajes_por_semana": {"7-10": 0.7, "más de 10": 0.3}
+        }
+      },
+      {
+        "id": "informales",
+        "nombre": "Trabajadores informales y cuentapropistas",
+        "peso": 0.22,
+        "descripcion": "Ingresos variables, sin reintegro de gastos; usan el transporte para conseguir trabajo diario.",
+        "afectacion": "Cada viaje más caro reduce directamente lo que ganan en el día.",
+        "atributos": {
+          "nivel_de_ingresos": {"bajo": 0.75, "medio": 0.25}
+        }
+      },
+      {
+        "id": "jubilados",
+        "nombre": "Jubilados",
+        "peso": 0.13,
+        "descripcion": "Viajan sobre todo a centros de salud y a visitar familia.",
+        "afectacion": "Tienen un 50% de descuento, pero su jubilación no se actualizó este año.",
+        "atributos": {
+          "edad": {"60+": 1.0},
+          "nivel_de_ingresos": {"bajo": 0.6, "medio": 0.35, "alto": 0.05},
+          "viajes_por_semana": {"0-2": 0.5, "3-6": 0.5}
+        }
+      },
+      {
+        "id": "automovilistas",
+        "nombre": "Automovilistas que casi no usan transporte público",
+        "peso": 0.15,
+        "descripcion": "Se mueven en auto propio; usan el transporte público solo ocasionalmente.",
+        "afectacion": "No les afecta directamente; podrían beneficiarse de menos tráfico si mejora el servicio.",
+        "atributos": {
+          "nivel_de_ingresos": {"bajo": 0.1, "medio": 0.5, "alto": 0.4},
+          "viajes_por_semana": {"0-2": 1.0}
+        }
+      }
+    ]
+  },
+  "preguntas": [
+    {
+      "id": "postura",
+      "tipo": "opcion",
+      "pregunta": "¿Cuál es su postura ante el aumento de la tarifa?",
+      "opciones": {
+        "apoya": "Lo apoya porque cree que mejorará el servicio",
+        "acepta_resignado": "No le gusta, pero lo acepta como inevitable",
+        "rechaza_en_silencio": "Lo rechaza, pero no hará nada al respecto",
+        "rechaza_y_se_moviliza": "Lo rechaza y está dispuesto a protestar o reclamar activamente"
+      }
+    },
+    {
+      "id": "ira_a_la_marcha",
+      "tipo": "si_no",
+      "pregunta": "¿Irá a la marcha del viernes contra el aumento?"
+    },
+    {
+      "id": "cambio_de_transporte",
+      "tipo": "opcion",
+      "pregunta": "¿Qué hará con su forma de moverse por la ciudad?",
+      "opciones": {
+        "sin_cambios": "Seguirá igual y pagará la nueva tarifa",
+        "viajara_menos": "Reducirá la cantidad de viajes",
+        "bicicleta_o_caminar": "Pasará a la bicicleta o a caminar en parte de sus trayectos",
+        "auto_o_moto": "Usará más el auto, la moto o aplicaciones de transporte",
+        "evadir_pago": "Intentará viajar sin pagar algunas veces"
+      }
+    },
+    {
+      "id": "impacto_en_voto",
+      "tipo": "escala",
+      "pregunta": "¿Cuánto influirá esta medida en su voto en las próximas elecciones municipales?",
+      "niveles": [
+        "Nada, no cambia su voto",
+        "Poco, es un factor menor",
+        "Bastante, lo tendrá en cuenta",
+        "Mucho, es decisivo para su voto"
+      ]
+    }
+  ],
+  "simulacion": {
+    "agentes": 100,
+    "rondas": 2,
+    "vecinos": 5,
+    "homofilia": 0.7,
+    "min_por_segmento": 10,
+    "semilla": 42
+  }
+}
